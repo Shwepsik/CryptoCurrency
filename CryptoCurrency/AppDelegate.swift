@@ -12,9 +12,30 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let userDefaults = UserDefaults.standard
+    var appDefaults = [String: Any]()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        appDefaults = ["keySoundSwitch" : true,
+                       "keyFontSwitch" : false,
+                       "refreshKey" : "Автоматически",
+                       "imageKey" : "Стандартное",
+                       "selectedRowRefresh": 0,
+                       "selectedRowImage": 0,
+                       "selectedSectionImage": 1,
+                       "nameKey": "some",
+                       "priceKey": "some",
+                       "imageLableKey": "",
+                       "fontSize": 17,
+                       "fontName": "Helvetica",
+                       "tableViewColorKey": 0xffffff,
+                       "viewColorKey": 0xEFEFF4,
+                       "textColorKey": 0x000000,
+                       "sectionColorKey": 0xEFEFF4]
+        userDefaults.register(defaults: appDefaults)
+        print(appDefaults)
         // Override point for customization after application launch.
         return true
     }
